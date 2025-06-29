@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ id, name, price, image, description }) => {
   const handleAddToCart = () => {
@@ -8,13 +9,19 @@ const ProductCard = ({ id, name, price, image, description }) => {
     const alreadyInCart = existingCart.find((item) => item.id === id);
 
     if (alreadyInCart) {
-      alert("Item is already in cart!");
+      toast.info("Item is already in the cart!", {
+        position: "top-right",
+        autoClose: 2000,
+      });
       return;
     }
 
     const updatedCart = [...existingCart, { id, name, price, image }];
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    alert("Added to cart!");
+    toast.success("Item added to cart!", {
+      position: "top-right",
+      autoClose: 2000,
+    });
   };
 
   return (
