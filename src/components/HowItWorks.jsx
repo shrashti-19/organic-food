@@ -26,7 +26,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="bg-green-50 py-16 px-5 lg:px-20">
+    <section id="how-it-works" className="bg-green-50 py-16 px-5 lg:px-20">
       <div className="flex flex-col lg:flex-row items-center gap-10">
         {/* img section  */}
         <div className="lg:w-1/2">

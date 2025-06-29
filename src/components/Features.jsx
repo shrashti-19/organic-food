@@ -31,7 +31,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="bg-white py-14 px-5 lg:px-14 text-center">
+    <section id="features" className="bg-white py-14 px-5 lg:px-14 text-center">
       <h2 className="text-3xl font-bold mb-10 text-gray-800">Why Choose Us</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {features.map((feature, index) => (

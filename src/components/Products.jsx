@@ -17,7 +17,7 @@ const Products = () => {
   );
 
   return (
-    <section className="bg-gray-50 pb-10 px-5 lg:px-14">
+    <section id="prodcts"className="bg-gray-50 pb-10 px-5 lg:px-14">
       <h2 className="text-4xl font-bold text-center text-gray-800 mb-10">
         Our Products
       </h2>

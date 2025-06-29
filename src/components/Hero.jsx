@@ -3,7 +3,7 @@ import img from "../assets/img/hero.png";
 
 const Hero = () => {
   return (
-    <section className="min-h-[90vh] flex flex-col-reverse md:flex-row justify-center md:justify-between items-center px-5 lg:px-14 bg-gradient-to-r from-[#d7e8dc] to-[#c4dbce]">
+    <section id="home"className="min-h-[90vh] flex flex-col-reverse md:flex-row justify-center md:justify-between items-center px-5 lg:px-14 bg-gradient-to-r from-[#d7e8dc] to-[#c4dbce]">
       {/* content section  */}
       <div className=" text-center mt-12 md:text-start md:mt-0 space-y-5 max-w-xl">
         <h3 className="text-sm md:text-lg text-gray-700">Fresh From Farm to Your Plate</h3>

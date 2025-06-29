@@ -57,7 +57,7 @@ const Testimonial = () => {
   };
 
   return (
-    <section className="bg-white py-16 px-4">
+    <section id="testimonals" className="bg-white py-16 px-4">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
         What Our Customers Say
       </h2>

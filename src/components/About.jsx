@@ -3,7 +3,7 @@ import img from "../assets/img/about.jpg"
 
 const About = () => {
   return (
-    <section className="bg-white py-16 px-5 lg:px-20">
+    <section id="about" className="bg-white py-16 px-5 lg:px-20">
       <div className="flex flex-col-reverse lg:flex-row items-center gap-10">
         {/* Left: Text Content */}
         <div className="lg:w-1/2">
