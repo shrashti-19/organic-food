@@ -1,0 +1,221 @@
+- features
+
+import {
+    FaLeaf,
+    FaShippingFast,
+    FaHandsHelping,
+    FaCheckCircle,
+  } from "react-icons/fa";
+  
+  const features = [
+    {
+      icon: <FaLeaf className="text-green-600 text-4xl mb-3" size={45} />,
+      title: "100% Organic",
+      desc: "All our produce is grown without harmful chemicals or pesticides.",
+    },
+    {
+      icon: <FaShippingFast className="text-green-600 text-4xl mb-3" size={45} />,
+      title: "Fast Delivery",
+      desc: "We deliver fresh produce at your doorstep within hours of harvesting.",
+    },
+    {
+      icon: <FaHandsHelping className="text-green-600 text-4xl mb-3" size={45} />,
+      title: "Farmer Support",
+      desc: "Empowering local farmers with fair trade and sustainable practices.",
+    },
+    {
+      icon: <FaCheckCircle className="text-green-600 text-4xl mb-3" size={45} />,
+      title: "Quality Assured",
+      desc: "Every item is checked for freshness and quality before delivery.",
+    },
+  ];
+
+
+- Product 
+
+const categories = [
+    "FOOD & DRINKS",
+    "FRESH FRUITS",
+    "VEGETABLES",
+    "DRIED FOODS & NUTS",
+  ];
+
+
+  const products = [
+    {
+      image: "src/assets/img/product1.jpg",
+      title: "Watermelon Juice",
+      price: 39,
+      category: "FOOD & DRINKS",
+    },
+    {
+      image: "src/assets/img/product2.jpg",
+      title: "Mango Smoothie",
+      price: 70,
+      oldPrice: 85,
+      discount: 17,
+      category: "FOOD & DRINKS",
+    },
+    {
+      image: "src/assets/img/product3.jpg",
+      title: "Grape Drink",
+      price: 39,
+      oldPrice: 55,
+      discount: 29,
+      category: "FOOD & DRINKS",
+    },
+    {
+      image: "src/assets/img/product4.jpg",
+      title: "Orange Juice",
+      price: 59,
+      oldPrice: 35,
+      discount: 20,
+      category: "FOOD & DRINKS",
+    },
+    {
+      image: "src/assets/img/product5.jpg",
+      title: "Organic Apple",
+      price: 29,
+      category: "FRESH FRUITS",
+    },
+    {
+      image: "src/assets/img/product6.jpg",
+      title: "Strawberries",
+      price: 49,
+      oldPrice: 65,
+      discount: 20,
+      category: "FRESH FRUITS",
+    },
+    {
+      image: "src/assets/img/product7.jpg",
+      title: "Pineapple",
+      price: 59,
+      category: "FRESH FRUITS",
+    },
+    {
+      image: "src/assets/img/product8.jpg",
+      title: "Broccoli",
+      price: 99,
+      oldPrice: 115,
+      discount: 17,
+      category: "VEGETABLES",
+    },
+    {
+      image: "src/assets/img/product9.jpg",
+      title: "Cucumber",
+      price: 39,
+      category: "VEGETABLES",
+    },
+    {
+      image: "src/assets/img/product10.jpg",
+      title: "Spinach",
+      price: 89,
+      oldPrice: 145,
+      discount: 14,
+      category: "VEGETABLES",
+    },
+    {
+      image: "src/assets/img/product11.jpg",
+      title: "Cauliflower",
+      price: 79,
+      category: "VEGETABLES",
+    },
+    {
+      image: "src/assets/img/product12.jpg",
+      title: "Organic Walnuts",
+      price: 39,
+      oldPrice: 52,
+      discount: 25,
+      category: "DRIED FOODS & NUTS",
+    },
+    {
+      image: "src/assets/img/product13.jpg",
+      title: "Raw Almonds",
+      price: 33,
+      oldPrice: 59,
+      status: "soldout",
+      category: "DRIED FOODS & NUTS",
+    },
+  ];
+  
+  export default products;
+
+  
+
+- About
+
+Fresh. Local. Organic.
+
+At NatureHarvest, we believe in bringing you the freshest organic
+produce directly from our partnered farmers. Our mission is to
+promote healthy living, sustainable farming, and fair trade for
+local communities.
+
+We carefully select farms that follow natural practices — no
+chemicals, no shortcuts. Just pure, wholesome food delivered
+straight to your doorstep.
+
+
+- HowItWorks
+
+const steps = [
+    {
+      number: "01",
+      title: "Place Your Order",
+      desc: "Browse our organic range and place your order in a few easy clicks.",
+    },
+    {
+      number: "02",
+      title: "Harvest from Farm",
+      desc: "We pick the freshest items straight from local organic farms.",
+    },
+    {
+      number: "03",
+      title: "Eco-Packaging",
+      desc: "We use sustainable, hygienic packaging to ensure freshness.",
+    },
+    {
+      number: "04",
+      title: "Quick Delivery",
+      desc: "Your order reaches your doorstep within hours, farm-fresh.",
+    },
+  ];
+
+
+
+- Testimonial 
+
+
+const testimonials = [
+    {
+      name: "Oliver Bennett",
+      comment: "The veggies were so fresh and packed beautifully. Love it!",
+      img: "src/assets/img/review1.jpg",
+    },
+    {
+      name: "Amelia Brooks",
+      comment: "Quick delivery & top-notch quality. Highly recommend!",
+      img: "src/assets/img/review2.jpg",
+    },
+    {
+      name: "Charlotte Harris",
+      comment: "Finally, a brand I can trust for real organic produce.",
+      img: "src/assets/img/review3.jpg",
+    },
+    {
+      name: "James Walker",
+      comment: "Organic, fresh, and affordable. My family loves it!",
+      img: "src/assets/img/review4.jpg",
+    },
+  ];
+
+
+
+- Footer 
+
+OrganicRoot
+
+Fresh, healthy, and 100% organic products delivered to your
+doorstep. Supporting local farmers and sustainable living.
+
+@copyright developed by champion programmers | All rights reserved
