@@ -1,3 +1,4 @@
+
 // import React, { useEffect, useState } from "react";
 // import { FiSearch } from "react-icons/fi";
 // import { IoIosContact } from "react-icons/io";
@@ -9,29 +10,26 @@
 //   const [cartCount, setCartCount] = useState(0);
 //   const navigate = useNavigate();
 
+//   // Function to update login and cart count status
+//   const updateStatus = () => {
+//     setLoggedIn(localStorage.getItem("isLoggedIn") === "true");
+//     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+//     setCartCount(cartItems.length);
+//   };
+
 //   useEffect(() => {
-//     const checkLogin = () => {
-//       setLoggedIn(localStorage.getItem("isLoggedIn") === "true");
+//     // Initial status update
+//     updateStatus();
+
+//     // Listen to storage events (e.g., when cart is updated in a different tab)
+//     const handleStorageChange = () => {
+//       updateStatus();
 //     };
 
-//     const updateCartCount = () => {
-//       const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-//       setCartCount(cartItems.length);
-//     };
-
-//     checkLogin();
-//     updateCartCount();
-
-//     window.addEventListener("storage", () => {
-//       checkLogin();
-//       updateCartCount();
-//     });
+//     window.addEventListener("storage", handleStorageChange);
 
 //     return () => {
-//       window.removeEventListener("storage", () => {
-//         checkLogin();
-//         updateCartCount();
-//       });
+//       window.removeEventListener("storage", handleStorageChange);
 //     };
 //   }, []);
 
@@ -44,19 +42,33 @@
 
 //   return (
 //     <header className="flex flex-row justify-between items-center px-5 py-5 lg:px-14 md:px-10 bg-[#c4dbce]">
+//       {/* Logo Section */}
 //       <div>
-//         <span className=" text-xl font-bold">FarmRoot</span>
+//         <span className="text-xl font-bold">FarmRoot</span>
 //       </div>
 
-//       <nav className=" hidden md:flex flex-row gap-6 items-center">
-//         <a href="#home" className="navHover">Home</a>
-//         <a href="#menu" className="navHover">Menu</a>
-//         <a href="#about" className="navHover">About Us</a>
-//         <a href="#subscription" className="navHover">Subscription</a>
-//         <a href="#recipes" className="navHover">Recipes</a>
-//         <a href="#footer" className="navHover">Contact</a>
+//       {/* Navigation Section */}
+//       <nav className="hidden md:flex flex-row gap-6 items-center">
+//         <a href="#home" className="navHover">
+//           Home
+//         </a>
+//         <a href="#menu" className="navHover">
+//           Menu
+//         </a>
+//         <a href="#about" className="navHover">
+//           About Us
+//         </a>
+//         <a href="#subscription" className="navHover">
+//           Subscription
+//         </a>
+//         <a href="#recipes" className="navHover">
+//           Recipes
+//         </a>
+//         <a href="#footer" className="navHover">
+//           Contact
+//         </a>
 
-//         {/* Icons */}
+//         {/* Icons with Cart Badge */}
 //         <div className="relative hidden lg:flex gap-2 ml-8">
 //           <span className="icons hover:bg-green-500 hover:text-white cursor-pointer">
 //             <FiSearch />
@@ -64,17 +76,20 @@
 //           <span className="icons hover:bg-green-500 hover:text-white cursor-pointer">
 //             <IoIosContact />
 //           </span>
-//           <span className="relative icons hover:bg-green-500 hover:text-white cursor-pointer">
+//           <Link
+//             to="/cart"
+//             className="relative icons hover:bg-green-500 hover:text-white cursor-pointer"
+//           >
 //             <FaShoppingCart />
 //             {cartCount > 0 && (
 //               <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
 //                 {cartCount}
 //               </span>
 //             )}
-//           </span>
+//           </Link>
 //         </div>
 
-//         {/* Auth Buttons */}
+//         {/* Authentication Buttons */}
 //         {loggedIn ? (
 //           <button
 //             onClick={handleLogout}
@@ -100,6 +115,7 @@
 //         )}
 //       </nav>
 
+//       {/* Responsive Mobile Button */}
 //       <button className="md:hidden bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-full shadow-lg transition duration-300">
 //         Shop Now
 //       </button>
@@ -108,6 +124,8 @@
 // };
 
 // export default Navbar;
+
+
 import React, { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { IoIosContact } from "react-icons/io";
@@ -119,7 +137,6 @@ const Navbar = () => {
   const [cartCount, setCartCount] = useState(0);
   const navigate = useNavigate();
 
-  // Function to update login and cart count status
   const updateStatus = () => {
     setLoggedIn(localStorage.getItem("isLoggedIn") === "true");
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
@@ -127,18 +144,20 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    // Initial status update
     updateStatus();
 
-    // Listen to storage events (e.g., when cart is updated in a different tab)
     const handleStorageChange = () => {
       updateStatus();
     };
 
     window.addEventListener("storage", handleStorageChange);
 
+    // Optional: listen to custom event from cart updates
+    window.addEventListener("cartUpdated", handleStorageChange);
+
     return () => {
       window.removeEventListener("storage", handleStorageChange);
+      window.removeEventListener("cartUpdated", handleStorageChange);
     };
   }, []);
 
@@ -151,33 +170,21 @@ const Navbar = () => {
 
   return (
     <header className="flex flex-row justify-between items-center px-5 py-5 lg:px-14 md:px-10 bg-[#c4dbce]">
-      {/* Logo Section */}
+      {/* Logo */}
       <div>
-        <span className="text-xl font-bold">FarmRoot</span>
+        <Link to="/" className="text-xl font-bold">FarmRoot</Link>
       </div>
 
-      {/* Navigation Section */}
+      {/* Navigation links */}
       <nav className="hidden md:flex flex-row gap-6 items-center">
-        <a href="#home" className="navHover">
-          Home
-        </a>
-        <a href="#menu" className="navHover">
-          Menu
-        </a>
-        <a href="#about" className="navHover">
-          About Us
-        </a>
-        <a href="#subscription" className="navHover">
-          Subscription
-        </a>
-        <a href="#recipes" className="navHover">
-          Recipes
-        </a>
-        <a href="#footer" className="navHover">
-          Contact
-        </a>
+        <Link to="/" className="navHover">Home</Link>
+        <Link to="/menu" className="navHover">Menu</Link>
+        <Link to="/about" className="navHover">About Us</Link>
+        <Link to="/subscription" className="navHover">Subscription</Link>
+        <Link to="/recipes" className="navHover">Recipes</Link>
+        <Link to="/contact" className="navHover">Contact</Link>
 
-        {/* Icons with Cart Badge */}
+        {/* Icons */}
         <div className="relative hidden lg:flex gap-2 ml-8">
           <span className="icons hover:bg-green-500 hover:text-white cursor-pointer">
             <FiSearch />
@@ -198,7 +205,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Authentication Buttons */}
+        {/* Auth Buttons */}
         {loggedIn ? (
           <button
             onClick={handleLogout}
@@ -224,8 +231,11 @@ const Navbar = () => {
         )}
       </nav>
 
-      {/* Responsive Mobile Button */}
-      <button className="md:hidden bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-full shadow-lg transition duration-300">
+      {/* Mobile Shop Now Button */}
+      <button
+        onClick={() => navigate("/menu")}
+        className="md:hidden bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-full shadow-lg transition duration-300"
+      >
         Shop Now
       </button>
     </header>
