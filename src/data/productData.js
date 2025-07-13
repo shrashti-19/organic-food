@@ -107,7 +107,7 @@ const products = [
   },
   {
     id: 2,
-    image: "src/assets/img/product2.jpg",
+    image: "src/assets/img/mango_smoothie.jpeg",
     title: "Mango Smoothie",
     price: 70,
     oldPrice: 85,

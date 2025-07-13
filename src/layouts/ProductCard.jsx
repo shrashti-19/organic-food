@@ -1,42 +1,43 @@
 // import React from "react";
 // import { toast } from "react-toastify";
 
-// const ProductCard = ({ id, name, price, image, description }) => {
+// const ProductCard = ({ id, name, title, price, image, description }) => {
+//   const displayName = name || title;
+
 //   const handleAddToCart = () => {
-//   const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+//     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+//     const alreadyInCart = existingCart.find((item) => item.id === id);
 
-//   const alreadyInCart = existingCart.find((item) => item.id === id);
+//     if (alreadyInCart) {
+//       toast.info("Item is already in the cart!", {
+//         position: "top-right",
+//         autoClose: 2000,
+//       });
+//       return;
+//     }
 
-//   if (alreadyInCart) {
-//     toast.info("Item is already in the cart!", {
+//     if (!id || !name || !price || !image) {
+//     toast.error("Cannot add incomplete product to cart");
+//     return;
+//    }
+//     const updatedCart = [...existingCart, { id, name: displayName, price, image }];
+//     localStorage.setItem("cart", JSON.stringify(updatedCart));
+//     window.dispatchEvent(new Event("cartUpdated"));
+
+//     toast.success("Item added to cart!", {
 //       position: "top-right",
 //       autoClose: 2000,
 //     });
-//     return;
-//   }
-
-//   const updatedCart = [...existingCart, { id, name, price, image }];
-//   localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-//   // 🔥 Dispatch custom event so Navbar and Cart update
-//   window.dispatchEvent(new Event("cartUpdated"));
-
-//   toast.success("Item added to cart!", {
-//     position: "top-right",
-//     autoClose: 2000,
-//   });
-// };
-
- 
+//   };
 
 //   return (
 //     <div className="bg-white shadow-md rounded-xl p-4 hover:shadow-xl transition">
 //       <img
 //         src={image}
-//         alt={name}
+//         alt={displayName}
 //         className="w-full h-40 object-cover rounded-md mb-4"
 //       />
-//       <h3 className="text-lg font-semibold">{name}</h3>
+//       <h3 className="text-lg font-semibold">{displayName}</h3>
 //       <p className="text-sm text-gray-600 mb-2">{description}</p>
 //       <div className="flex justify-between items-center mt-2">
 //         <span className="text-green-600 font-bold">${price}</span>
@@ -52,15 +53,14 @@
 // };
 
 // export default ProductCard;
-
-
 import React from "react";
 import { toast } from "react-toastify";
 
-const ProductCard = ({ id, name, price, image, description }) => {
+const ProductCard = ({ id, name, title, price, image, description }) => {
+  const displayName = name || title;
+
   const handleAddToCart = () => {
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
-
     const alreadyInCart = existingCart.find((item) => item.id === id);
 
     if (alreadyInCart) {
@@ -71,10 +71,14 @@ const ProductCard = ({ id, name, price, image, description }) => {
       return;
     }
 
-    const updatedCart = [...existingCart, { id, name, price, image }];
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    // ✅ Use displayName instead of name in validation
+    if (!id || !displayName || !price || !image) {
+      toast.error("Cannot add incomplete product to cart");
+      return;
+    }
 
-    // Notify Navbar and Cart about the change
+    const updatedCart = [...existingCart, { id, name: displayName, price, image }];
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
     window.dispatchEvent(new Event("cartUpdated"));
 
     toast.success("Item added to cart!", {
@@ -87,10 +91,10 @@ const ProductCard = ({ id, name, price, image, description }) => {
     <div className="bg-white shadow-md rounded-xl p-4 hover:shadow-xl transition">
       <img
         src={image}
-        alt={name}
+        alt={displayName}
         className="w-full h-40 object-cover rounded-md mb-4"
       />
-      <h3 className="text-lg font-semibold">{name}</h3>
+      <h3 className="text-lg font-semibold">{displayName}</h3>
       <p className="text-sm text-gray-600 mb-2">{description}</p>
       <div className="flex justify-between items-center mt-2">
         <span className="text-green-600 font-bold">${price}</span>

@@ -16,6 +16,11 @@ import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import Cart from "./pages/Cart";
 
+import Recipes from "./pages/Recipes";
+import Menu from "./pages/Menu";
+import Deals from "./pages/Deal";
+import Subscription from "./pages/Subscription";
+import Checkout from "./pages/Checkout";
 const Home = () => (
   <>
     <Hero />
@@ -49,9 +54,23 @@ const App = () => {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+              <Checkout/>
+            </PrivateRoute>
+          }
+        />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+
+        <Route path="/recipes" element={<Recipes/>}/>
+        <Route path="/menu" element={<Menu/>}/>
+        <Route path="/deals" element={<Deals/>}/>
+        <Route path="/subscription" element={<Subscription/>}/>
       </Routes>
+
       <Footer />
     </Router>
   );
