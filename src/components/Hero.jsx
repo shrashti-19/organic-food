@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../assets/img/hero.png";
+//import img from "../assets/img/hero.png";
 
 const Hero = () => {
   return (
@@ -21,9 +21,10 @@ const Hero = () => {
       </div>
 
       {/* img section  */}
-      <div className=" w-4/5 md:w-2/5">
+  
+      <div className="w-4/5 md:w-2/5">
         <img
-          src={img}
+          src="/img/hero.png"
           alt="img"
           className="rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.2)] border-2 border-white"
         />

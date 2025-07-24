@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../assets/img/about.jpg"
+//import img from "../assets/img/about.jpg"
 
 const About = () => {
   return (
@@ -30,7 +30,7 @@ const About = () => {
         {/* Right: Image */}
         <div className="lg:w-1/2">
           <img
-            src={img}
+            src="/img/about.jpg"
             alt="Our Farm"
             className="w-full h-auto rounded-lg shadow-lg"
           />
