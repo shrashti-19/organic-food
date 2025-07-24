@@ -62,7 +62,7 @@ const recipes = [
   {
     id: 1,
     title: "Fresh Mango Smoothie",
-    image: "/img/mango_smoothie.jpeg",
+    image: "/img/product2.jpg",
     description: "A refreshing mango smoothie made with ripe mangoes, yogurt, and honey.",
     ingredients: [
       "2 ripe mangoes",
