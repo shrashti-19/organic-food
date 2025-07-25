@@ -1,4 +1,4 @@
-##### 🌾 FarmRoot - React E-commerce Application
+###### 🌾 FarmRoot - React E-commerce Application
 FarmRoot is a modern, responsive e-commerce web application built using React and Tailwind CSS. It provides a seamless shopping experience with features like product browsing, cart management, order checkout, and a beautiful light/dark mode toggle.
 
 🌐 Live Demo: https://organic-food-farmroot.vercel.app
